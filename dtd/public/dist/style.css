@@ -432,6 +432,12 @@ template {
 [hidden] {
   display: none; }
 
+@font-face {
+  font-family: 'panama';
+  src: url("/fonts/panama-bold-webfont.woff2") format("woff2"), url("/fonts/panama-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
 html {
   font-size: 10px; }
 
@@ -866,6 +872,8 @@ label {
 .single__image {
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   object-fit: cover;
   position: absolute; }
 
@@ -1039,7 +1047,8 @@ label {
     display: flex;
     -ms-flex-pack: center;
         justify-content: center;
-    algin-items: center;
+    -ms-flex-align: center;
+        align-items: center;
     border-top: 1px solid #e6e6e6; }
     .reviewer__meta > * {
       -ms-flex: 1;
