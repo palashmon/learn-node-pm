@@ -1,0 +1,30 @@
+//- This is the main storeForm mixin
+mixin storeForm(store = {})
+
+  //- Main store form here
+  form(action="/add" method="POST" class="card")
+    label(for="name") Name
+    input(type="text" name="name")
+
+    label(for="description") Description
+    textarea(name="description")
+
+    //- List of choices here using inline js
+    - const choices = ['Wifi', 'Open Late', 'Family Friendly', 'Vegatarian', 'Licensed']
+    ul.tags
+      each choice in choices
+        .tag.tag__choice
+          input(type="checkbox" id=choice value=choice name="tags")
+          label(for=choice) #{choice}
+
+    //- Form submit button here					
+    input(type="submit" value="Save →" class="button")
+
+mixin createTable(numberOfRows)
+  - var n = 0; 
+  table
+    tr
+      th Number
+    while n < numberOfRows
+      tr
+        td= n++
