@@ -22,6 +22,18 @@ mongoose.connection.on('error', (err) => {
 // Import all of our models
 require('./models/Store');
 
+// mongoose.connection.on('open', function (ref) { 
+// 	mongoose.connection.db.collections(function(error, collections) { 
+// 		if (error) { 
+// 			throw new Error(error); 
+// 		} else { 
+// 			collections.map(function(collection) { 
+// 				console.log('found collection %s', collection.s.name); 
+// 			});
+// 		} 
+// 	});
+// });
+
 // Start our app!
 const app = require('./app');
 

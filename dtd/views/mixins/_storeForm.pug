@@ -20,11 +20,3 @@ mixin storeForm(store = {})
     //- Form submit button here					
     input(type="submit" value="Save →" class="button")
 
-mixin createTable(numberOfRows)
-  - var n = 0; 
-  table
-    tr
-      th Number
-    while n < numberOfRows
-      tr
-        td= n++
