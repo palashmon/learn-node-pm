@@ -3,7 +3,9 @@ const storeController = require('../controllers/storeController');
 const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers');
 
-router.get('/', storeController.homePage);
+// Show saved stores on Home page & stores page
+router.get('/', catchErrors(storeController.getStores));
+router.get('/stores', catchErrors(storeController.getStores));
 
 // Add routes for adding a new store
 router.get('/add', storeController.addStore);

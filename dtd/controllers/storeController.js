@@ -17,3 +17,10 @@ exports.createStore = async (req, res) => {
   res.redirect(`/store/${store.slug}`);
 };
 
+// Get all the stores saved in DB
+exports.getStores = async (req, res) => {
+  // 1. Query the database for a list of all stores
+  const stores = await Store.find();	
+  res.render('stores', { title: 'Stores', stores });
+};
+
