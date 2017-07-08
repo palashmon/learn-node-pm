@@ -4,5 +4,7 @@ include mixins/_storeForm
 
 block content
   .inner
+    //- Used for debugging purpose only
+    //- pre= h.dump(store)
     h2= title
-    +storeForm()
+    +storeForm(store)
