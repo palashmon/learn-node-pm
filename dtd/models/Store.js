@@ -33,7 +33,8 @@ const storeSchema = new mongoose.Schema({
 			type: String,
 			required: 'You must supply an address!'
 		}
-	}
+	},
+  	photo: String
 });
 
 // More info on mongoose middleware: http://mongoosejs.com/docs/middleware.html
