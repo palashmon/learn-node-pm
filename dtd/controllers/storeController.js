@@ -82,3 +82,11 @@ exports.updateStore = async (req, res) => {
   res.redirect(`/stores/${store._id}/edit`);
   // Redriect them the store and tell them it worked
 };
+
+// This is used to query the database 
+// get store details from database based slug value
+exports.getStoreBySlug = async (req, res, next) => {
+  const store = await Store.findOne({ slug: req.params.slug });
+  if (!store) return next();  // If we did not find any store, then just skip
+  res.render('store', { store, title: store.name });
+};

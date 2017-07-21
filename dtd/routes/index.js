@@ -25,4 +25,7 @@ router.post('/add/:id',
 
 router.get('/stores/:id/edit', catchErrors(storeController.editStore));
 
+// This is used to get full details about a store based on slug value
+router.get('/store/:slug', catchErrors(storeController.getStoreBySlug));
+
 module.exports = router;
