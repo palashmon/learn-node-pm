@@ -39,12 +39,28 @@ const storeSchema = new mongoose.Schema({
 
 // More info on mongoose middleware: http://mongoosejs.com/docs/middleware.html
 // Model#save here: http://mongoosejs.com/docs/api.html#model_Model-save
-storeSchema.pre('save', function(next){
+storeSchema.pre('save', async function(next){
 	if(!this.isModified('name')){
 		next();	// skip it
 		return; // stop this function from running further
 	}
 	this.slug = slug(this.name);
+	
+	// find other stores that have a slug of wes, wes-1, wes-2
+	const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, 'i');
+
+	// Test cases
+	/*
+		slugRegEx.test('aaa');		// false
+		slugRegEx.test('wes');		// true
+		slugRegEx.test('wes-1');	// true
+		slugRegEx.test('wes-199');	// true
+	*/
+
+	const storesWithSlug = await this.constructor.find({ slug: slugRegEx });
+	if(storesWithSlug.length) {
+		this.slug = `${this.slug}-${storesWithSlug.length + 1}`;
+	}
 	next();
 	// TODO make more resiliant so slugs are unique
 });
