@@ -28,4 +28,8 @@ router.get('/stores/:id/edit', catchErrors(storeController.editStore));
 // This is used to get full details about a store based on slug value
 router.get('/store/:slug', catchErrors(storeController.getStoreBySlug));
 
+// This is used to display tag view 
+router.get('/tags', catchErrors(storeController.getStoresByTag));
+router.get('/tags/:tag', catchErrors(storeController.getStoresByTag));
+
 module.exports = router;
