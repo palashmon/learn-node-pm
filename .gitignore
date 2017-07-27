@@ -7,3 +7,4 @@ variables.env
 variables.env.now
 .vscode/
 public/uploads/
+.eslintrc.json

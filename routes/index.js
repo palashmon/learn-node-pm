@@ -1,5 +1,6 @@
 const express = require('express');
 const storeController = require('../controllers/storeController');
+const userController = require('../controllers/userController');
 const router = express.Router();
 const { catchErrors } = require('../handlers/errorHandlers');
 
@@ -28,8 +29,18 @@ router.get('/stores/:id/edit', catchErrors(storeController.editStore));
 // This is used to get full details about a store based on slug value
 router.get('/store/:slug', catchErrors(storeController.getStoreBySlug));
 
-// This is used to display tag view 
+// This is used to display tag view
 router.get('/tags', catchErrors(storeController.getStoresByTag));
 router.get('/tags/:tag', catchErrors(storeController.getStoresByTag));
+
+router.get('/login', userController.loginForm);
+router.get('/register', userController.registerForm);
+
+// 1. Validate the registration data
+// 2. register the user
+// 3. we need to log them in
+router.post('/register',
+  userController.validateRegister
+);
 
 module.exports = router;

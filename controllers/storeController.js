@@ -8,7 +8,7 @@ const multerOptions = {
   storage: multer.memoryStorage(),
   fileFilter(req, file, next) {
     const isPhoto = file.mimetype.startsWith('image/');
-    if(isPhoto) {
+    if (isPhoto) {
       next(null, true);
     } else {
       next({ message: 'That filetype isn\'t allowed!' }, false);
@@ -55,7 +55,7 @@ exports.createStore = async (req, res) => {
 // Get all the stores saved in DB
 exports.getStores = async (req, res) => {
   // 1. Query the database for a list of all stores
-  const stores = await Store.find();	
+  const stores = await Store.find();
   res.render('stores', { title: 'Stores', stores });
 };
 
@@ -69,7 +69,6 @@ exports.editStore = async (req, res) => {
 };
 
 exports.updateStore = async (req, res) => {
-
   // set the location data to be a point
   req.body.location.type = 'Point';
 
@@ -83,7 +82,7 @@ exports.updateStore = async (req, res) => {
   // Redriect them the store and tell them it worked
 };
 
-// This is used to query the database 
+// This is used to query the database
 // get store details from database based slug value
 exports.getStoreBySlug = async (req, res, next) => {
   const store = await Store.findOne({ slug: req.params.slug });
@@ -94,11 +93,11 @@ exports.getStoreBySlug = async (req, res, next) => {
 exports.getStoresByTag = async (req, res) => {
   const tag = req.params.tag;
   const tagQuery = tag || { $exists: true };
-  
+
   const tagsPromise = Store.getTagsList();
   const storesPromise = Store.find({ tags: tagQuery });
   const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
-  //res.json(tags);
-  //res.json(stores);
+  // res.json(tags);
+  // res.json(stores);
   res.render('tag', { tags, title: 'Tags', tag, stores });
 };

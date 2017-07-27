@@ -3,7 +3,7 @@
 [![Dependency Status](https://david-dm.org/palashmon/learn-node-pm.svg?maxAge=21600)](https://david-dm.org/palashmon/learn-node-pm)
 [![devDependency Status](https://david-dm.org/palashmon/learn-node-pm/dev-status.svg?maxAge=21600)](https://david-dm.org/palashmon/learn-node-pm?type=dev)
 
-This are the starter files to accompany the [LearnNode.com](https://learnnode.com/) course. I keep updating this repo on regular basis after thorough understanding, practicing & re-learning each module in this course.
+These are the starter files to accompany the [LearnNode.com](https://learnnode.com/) course. I keep updating this repo on regular basis after thorough understanding, practicing & re-learning each module in this course.
 
 ## Sample Data
 
