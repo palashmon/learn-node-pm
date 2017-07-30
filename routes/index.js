@@ -10,7 +10,7 @@ router.get('/', catchErrors(storeController.getStores));
 router.get('/stores', catchErrors(storeController.getStores));
 
 // Add routes for adding a new store
-router.get('/add', storeController.addStore);
+router.get('/add', authController.isLoggedIn, storeController.addStore);
 
 // Upload & resize images first, if any file was uploaded
 // then create or update store
@@ -37,6 +37,7 @@ router.get('/tags', catchErrors(storeController.getStoresByTag));
 router.get('/tags/:tag', catchErrors(storeController.getStoresByTag));
 
 router.get('/login', userController.loginForm);
+router.post('/login', authController.login);
 router.get('/register', userController.registerForm);
 
 // 1. Validate the registration data
@@ -52,5 +53,7 @@ router.post(
   catchErrors(userController.register),
   authController.login
 );
+
+router.get('/logout', authController.logout);
 
 module.exports = router;
