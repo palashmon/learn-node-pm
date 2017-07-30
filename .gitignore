@@ -8,3 +8,4 @@ variables.env.now
 .vscode/
 public/uploads/
 .eslintrc.json
+.eslintignore
