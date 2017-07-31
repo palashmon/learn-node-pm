@@ -6,7 +6,7 @@ block content
     //- pre= h.dump(user)
     form(action="/account" method="POST")
       label(for="name") Name
-      input(type="text" name="name" value=user.name)
+      input(type="text" name="name" value=user.name placeholder="Enter Name")
       label(for="email") Email Address
-      input(type="email" name="email" value=user.email)
+      input(type="email" name="email" value=user.email placeholder="Enter email")
       input.button(type="submit" value="Update My Account")
