@@ -43,6 +43,12 @@ const storeSchema = new mongoose.Schema({
   }
 });
 
+// Define our indexes
+storeSchema.index({
+  name: 'text',
+  description: 'text'
+});
+
 // More info on mongoose middleware: http://mongoosejs.com/docs/middleware.html
 // Model#save here: http://mongoosejs.com/docs/api.html#model_Model-save
 storeSchema.pre('save', async function(next) {
