@@ -49,6 +49,10 @@ storeSchema.index({
   description: 'text'
 });
 
+// Index the location column as 2dsphere for faster processing
+// Info: https://docs.mongodb.com/v3.2/core/2dsphere/
+storeSchema.index({ location: '2dsphere' });
+
 // More info on mongoose middleware: http://mongoosejs.com/docs/middleware.html
 // Model#save here: http://mongoosejs.com/docs/api.html#model_Model-save
 storeSchema.pre('save', async function(next) {

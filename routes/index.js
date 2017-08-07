@@ -72,4 +72,7 @@ router.post(
  */
 router.get('/api/search', catchErrors(storeController.searchStores));
 
+// Search for stores that are near to the entered location
+router.get('/api/stores/near', catchErrors(storeController.mapStores));
+
 module.exports = router;
