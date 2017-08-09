@@ -162,6 +162,14 @@ exports.mapPage = (req, res) => {
 
 exports.heartStore = async (req, res) => {
   const hearts = req.user.hearts.map(obj => obj.toString());
+
+  // The $pull operator removes from an existing array all instances of a value
+  // or values that match a specified condition.
+  // Ref: https://docs.mongodb.com/manual/reference/operator/update/pull/
+
+  // The $addToSet operator adds a value to an array unless the value is already present,
+  // in which case $addToSet does nothing to that array.
+  // Ref: https://docs.mongodb.com/manual/reference/operator/update/addToSet/
   const operator = hearts.includes(req.params.id) ? '$pull' : '$addToSet';
   const user = await User.findByIdAndUpdate(
     req.user._id,
