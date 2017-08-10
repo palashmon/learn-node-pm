@@ -178,3 +178,12 @@ exports.heartStore = async (req, res) => {
   );
   res.json(user);
 };
+
+// Query the database to get hearted stores for logged in user
+exports.getHearts = async (req, res) => {
+  const stores = await Store.find({
+    _id: { $in: req.user.hearts }
+  });
+  // res.json(req.user.hearts)
+  res.render('stores', { title: 'Hearted Stores', stores });
+};
