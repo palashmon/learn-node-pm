@@ -18,3 +18,6 @@ block content
           li.tag
             a.tag__link(href=`/tags/${tag}`)
               span.tag__text  ##{tag}
+    //- If we have a logged in user than only show the review form
+    if user
+      +reviewForm(store)
