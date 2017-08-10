@@ -3,6 +3,7 @@ const router = express.Router();
 const storeController = require('../controllers/storeController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const reviewController = require('../controllers/reviewController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 // Show saved stores on Home page & stores page
@@ -68,6 +69,8 @@ router.post(
 );
 
 router.get('/map', storeController.mapPage);
+router.get('/hearts', authController.isLoggedIn, catchErrors(storeController.getHearts));
+router.post('/reviews/:id', authController.isLoggedIn, catchErrors(reviewController.addReview));
 
 /**
  *  API 
@@ -77,7 +80,7 @@ router.get('/api/search', catchErrors(storeController.searchStores));
 // Search for stores that are near to the entered location
 router.get('/api/stores/near', catchErrors(storeController.mapStores));
 
-// Heart a slected store by logged in user
+// Heart a selected store by logged in user
 router.post('/api/stores/:id/heart', catchErrors(storeController.heartStore));
 
 module.exports = router;

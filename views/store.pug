@@ -1,5 +1,7 @@
 extends layout
 
+include mixins/_reviewForm
+
 block content
   .single
     .single__hero
@@ -17,7 +19,6 @@ block content
         each tag in store.tags
           li.tag
             a.tag__link(href=`/tags/${tag}`)
-              span.tag__text  ##{tag}
-    //- If we have a logged in user than only show the review form
+              span.tag__text  ##{tag}    
     if user
       +reviewForm(store)

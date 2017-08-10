@@ -24,6 +24,7 @@ mongoose.connection.on('error', err => {
 // Import all of our models
 require('./models/Store');
 require('./models/User');
+require('./models/Review');
 
 // mongoose.connection.on('open', function (ref) {
 //  mongoose.connection.db.collections(function(error, collections) {
