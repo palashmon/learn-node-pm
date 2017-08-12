@@ -98,7 +98,7 @@ exports.updateStore = async (req, res) => {
 // get store details from database based slug value
 /* eslint consistent-return: 0 */
 exports.getStoreBySlug = async (req, res, next) => {
-  const store = await Store.findOne({ slug: req.params.slug });
+  const store = await Store.findOne({ slug: req.params.slug }).populate('author reviews');
   if (!store) return next(); // If we did not find any store, then just skip
   res.render('store', { store, title: store.name });
 };
