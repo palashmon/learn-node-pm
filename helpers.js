@@ -29,3 +29,9 @@ exports.menu = [
   { slug: '/add', title: 'Add', icon: 'add' },
   { slug: '/map', title: 'Map', icon: 'map' }
 ];
+
+// Get store image link
+exports.storeImage = store => `/uploads/${store.photo || 'store.png'}`;
+
+// Get store link based on slug
+exports.storeSlug = store => `/store/${store.slug}`;
