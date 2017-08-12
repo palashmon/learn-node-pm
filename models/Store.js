@@ -78,7 +78,7 @@ storeSchema.pre('save', async function(next) {
     this.slug = `${this.slug}-${storesWithSlug.length + 1}`;
   }
   next();
-  // TODO make more resiliant so slugs are unique
+  // TODO make more resilient so slugs are unique
 });
 
 // mongodb aggregation using Pipeline Operators
@@ -87,7 +87,7 @@ storeSchema.pre('save', async function(next) {
 	1. Unwind store for each tag
 	2. Group by tags field
 	3. This creates a new object for each tag like { _id: 'tagname', count: <number of stores for each tag>}
-	4. Finaly sort by count desending direction
+	4. Finally sort by count descending direction
 	5. $sort key ordering must be 1 (for ascending) or -1 (for descending)
 */
 storeSchema.statics.getTagsList = function() {
