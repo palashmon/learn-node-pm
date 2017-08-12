@@ -83,4 +83,7 @@ router.get('/api/stores/near', catchErrors(storeController.mapStores));
 // Heart a selected store by logged in user
 router.post('/api/stores/:id/heart', catchErrors(storeController.heartStore));
 
+// For display top rated stores
+router.get('/top', catchErrors(storeController.getTopStores));
+
 module.exports = router;
