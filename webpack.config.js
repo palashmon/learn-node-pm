@@ -6,7 +6,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 /*
   webpack sees every file as a module.
   How to handle those files is up to loaders.
@@ -80,9 +80,9 @@ const config = {
     // here is where we tell it to output our css to a separate file
     new ExtractTextPlugin('style.css'),
 
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static'
-    }),
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'static'
+    // }),
 
     new webpack.optimize.UglifyJsPlugin({
       // eslint-disable-line
@@ -90,12 +90,13 @@ const config = {
     }),
 
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'node-static',
-      filename: 'node-static.js',
-      minChunks(module, count) {
-        const context = module.context;
-        return context && context.indexOf('node_modules') >= 0;
-      }
+      name: 'vendor',
+      minChunks: m => m.context && m.context.includes('node_modules')
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'runtime',
+      chunks: ['vendor'],
+      minChunks: Infinity
     })
   ]
 };

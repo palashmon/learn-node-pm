@@ -10,6 +10,9 @@ const { catchErrors } = require('../handlers/errorHandlers');
 router.get('/', catchErrors(storeController.getStores));
 router.get('/stores', catchErrors(storeController.getStores));
 
+// New route used for pagination in store list page
+router.get('/stores/page/:page', catchErrors(storeController.getStores));
+
 // Add routes for adding a new store
 router.get('/add', authController.isLoggedIn, storeController.addStore);
 
