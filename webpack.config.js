@@ -6,6 +6,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 /*
   webpack sees every file as a module.
   How to handle those files is up to loaders.
@@ -15,10 +16,12 @@ const autoprefixer = require('autoprefixer');
 // This is our JavaScript rule that specifies what to do with .js files
 const javascript = {
   test: /\.(js)$/, // see how we match anything that ends in `.js`? Cool
-  use: [{
-    loader: 'babel-loader',
-    options: { presets: ['es2015'] } // this is one way of passing options
-  }],
+  use: [
+    {
+      loader: 'babel-loader',
+      options: { presets: ['es2015'] } // this is one way of passing options
+    }
+  ]
 };
 
 /*
@@ -28,7 +31,9 @@ const javascript = {
 const postcss = {
   loader: 'postcss-loader',
   options: {
-    plugins() { return [autoprefixer({ browsers: 'last 3 versions' })]; }
+    plugins() {
+      return [autoprefixer({ browsers: 'last 3 versions' })];
+    }
   }
 };
 
@@ -42,7 +47,8 @@ const styles = {
 };
 
 // We can also use plugins - this one will compress the crap out of our JS
-const uglify = new webpack.optimize.UglifyJsPlugin({ // eslint-disable-line
+const uglify = new webpack.optimize.UglifyJsPlugin({
+  // eslint-disable-line
   compress: { warnings: false }
 });
 
@@ -73,6 +79,24 @@ const config = {
   plugins: [
     // here is where we tell it to output our css to a separate file
     new ExtractTextPlugin('style.css'),
+
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static'
+    }),
+
+    new webpack.optimize.UglifyJsPlugin({
+      // eslint-disable-line
+      compress: { warnings: false }
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'node-static',
+      filename: 'node-static.js',
+      minChunks(module, count) {
+        const context = module.context;
+        return context && context.indexOf('node_modules') >= 0;
+      }
+    })
   ]
 };
 // webpack is cranky about some packages using a soon to be deprecated API. shhhhhhh
