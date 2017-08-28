@@ -1,5 +1,7 @@
 ## Learn Node
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/palashmon/learn-node-pm.svg)](https://greenkeeper.io/)
+
 [![Dependency Status](https://david-dm.org/palashmon/learn-node-pm.svg?maxAge=21600)](https://david-dm.org/palashmon/learn-node-pm)
 [![devDependency Status](https://david-dm.org/palashmon/learn-node-pm/dev-status.svg?maxAge=21600)](https://david-dm.org/palashmon/learn-node-pm?type=dev)
 
