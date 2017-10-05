@@ -9,8 +9,7 @@
         "prod": "node ./start.js",
         "watch": "nodemon ./start.js --ignore public/",
         "lint": "eslint **/*.js",
-        "start":
-            "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+        "start": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
         "assets": "webpack -w --display-max-modules 0",
         "wp": "webpack --display-max-modules 0",
         "wpep": "webpack --display-entrypoints",
@@ -53,9 +52,9 @@
     },
     "devDependencies": {
         "autoprefixer": "~7.1.3",
-        "babel-core": "~6.26.0",
+        "babel-core": "7.0.0-beta.2",
         "babel-loader": "~7.1.2",
-        "babel-preset-env": "~1.6.0",
+        "babel-preset-env": "2.0.0-beta.2",
         "concurrently": "~3.5.0",
         "css-loader": "~0.28.5",
         "extract-text-webpack-plugin": "~3.0.0",
