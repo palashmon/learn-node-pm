@@ -63,6 +63,6 @@
         "postcss-loader": "~2.0.6",
         "sass-loader": "~6.0.3",
         "webpack": "~3.11.0",
-        "webpack-bundle-analyzer": "~2.10.0"
+        "webpack-bundle-analyzer": "~2.11.0"
     }
 }
