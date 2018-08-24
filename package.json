@@ -55,7 +55,7 @@
         "babel-core": "7.0.0-beta.2",
         "babel-loader": "^7.1.2",
         "babel-preset-env": "2.0.0-beta.2",
-        "concurrently": "^3.5.0",
+        "concurrently": "^4.0.0",
         "css-loader": "^1.0.0",
         "extract-text-webpack-plugin": "^3.0.0",
         "node-sass": "^4.7.1",
