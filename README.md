@@ -1,6 +1,6 @@
 ## Learn Node
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/palashmon/learn-node-pm.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/palashmon/learn-node-pm/badge.svg)](https://snyk.io/test/github/palashmon/learn-node-pm)
 [![Dependency Status](https://david-dm.org/palashmon/learn-node-pm.svg?maxAge=21600)](https://david-dm.org/palashmon/learn-node-pm)
 [![devDependency Status](https://david-dm.org/palashmon/learn-node-pm/dev-status.svg?maxAge=21600)](https://david-dm.org/palashmon/learn-node-pm?type=dev)
 
