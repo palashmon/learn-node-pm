@@ -1,8 +1,8 @@
 pull_request_rules:
   - name: automatic merge for Greenkeeper pull requests
     conditions:
-      - author=greenkeeper[bot]
-      - status-success=greenkeeper/verify
+      - status-success=Travis CI - Pull Request
+      - status-success=security/snyk - package.json
     actions:
       merge:
         method: merge
