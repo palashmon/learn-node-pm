@@ -1,17 +1,18 @@
 dist: trusty
-sudo: false
 language: node_js
 node_js:
-  - 7
+  - node
 cache:
   directories:
-     - node_modules     
+    - node_modules
 branches:
   only:
     - master
-    - /^greenkeeper/.*$/
+    - /^snyk/.*$/
 notifications:
-  email: false    
+  email: false   
+before_install:
+  - "npm i -g npm@latest"
 install:
   - npm install
 script:
