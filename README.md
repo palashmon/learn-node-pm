@@ -1,8 +1,7 @@
 ## Learn Node
 
-[![Known Vulnerabilities](https://snyk.io/test/github/palashmon/learn-node-pm/badge.svg)](https://snyk.io/test/github/palashmon/learn-node-pm)
+[![Build Status](https://travis-ci.org/palashmon/learn-node-pm.svg?branch=master)](https://travis-ci.org/palashmon/learn-node-pm)
 [![Dependency Status](https://david-dm.org/palashmon/learn-node-pm.svg?maxAge=21600)](https://david-dm.org/palashmon/learn-node-pm)
-[![devDependency Status](https://david-dm.org/palashmon/learn-node-pm/dev-status.svg?maxAge=21600)](https://david-dm.org/palashmon/learn-node-pm?type=dev)
 
 These are the starter files to accompany the [LearnNode.com](https://learnnode.com/) course. I keep updating this repo on regular basis after thorough understanding, practicing & re-learning each module in this course.
 
