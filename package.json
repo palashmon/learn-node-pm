@@ -68,12 +68,5 @@
     "webpack": "^3.11.0",
     "webpack-bundle-analyzer": ">=3.3.2"
   },
-  "greenkeeper": {
-    "ignore": [
-      "webpack",
-      "webpack-bundle-analyzer",
-      "extract-text-webpack-plugin"
-    ]
-  },
   "snyk": true
 }
