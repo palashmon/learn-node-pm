@@ -2,13 +2,13 @@ pull_request_rules:
   - name: automatic merge for master when reviewed and CI passes
     conditions:
       - status-success=continuous-integration/travis-ci/pr
-      - status-success=security/snyk - package.json (palashmon)
+      - status-success=security/snyk (palashmon)
     actions:
       merge:
         method: merge
   - name: auto add snyk
     conditions:
-      - title~=^(snyk|Snyk).*
+      - title~=^(snyk|Snyk|Upgrade|fix).*
     actions:
       label:
         add: ["ready-to-merge"]
