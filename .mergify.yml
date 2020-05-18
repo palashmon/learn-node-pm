@@ -8,7 +8,7 @@ pull_request_rules:
         method: merge
   - name: auto add snyk
     conditions:
-      - title~=^(snyk|Snyk|Upgrade|fix).*
+      - title~=^.*(snyk|Snyk|Upgrade|fix).*
     actions:
       label:
         add: ["ready-to-merge"]
