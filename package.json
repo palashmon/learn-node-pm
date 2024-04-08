@@ -32,7 +32,7 @@
     "express": "^4.15.2",
     "express-session": "^1.15.1",
     "express-validator": "^6.0.0",
-    "faker": "^4.1.0",
+    "faker": "^6.6.6",
     "forever": "^4.0.0",
     "glob": "^9.0.0",
     "html-to-text": "^6.0.0",
