@@ -31,7 +31,7 @@
     "es6-promisify": "^6.0.0",
     "express": "^4.15.2",
     "express-session": "^1.15.1",
-    "express-validator": "^6.0.0",
+    "express-validator": "^7.0.1",
     "faker": "^4.1.0",
     "forever": "^4.0.0",
     "glob": "^9.0.0",
