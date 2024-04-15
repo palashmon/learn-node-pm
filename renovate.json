@@ -3,29 +3,17 @@
   "extends": [
     "config:recommended"
   ],
-  "commitMessageAction": "bump",
-  "commitMessageExtra": "to {{newValue}}",
-  "commitMessageTopic": "{{depName}}",
-  "dependencyDashboard": true,
+  "baseBranches": ["master"],
+  "pinVersions": false,
+  "commitMessage": "{{semanticPrefix}} update {{depName}} to version {{newVersion}}",
   "rebaseWhen": "conflicted",
   "ignoreDeps": [],
   "labels": ["dependencies"],
   "prConcurrentLimit": 30,
   "prHourlyLimit": 2,
-  "packageRules": [
-    {
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "all non-major plugins",
-      "groupSlug": "plugins-minor-patch",
-      "automerge": true
-    },
-    {
-      "matchManagers": ["github-actions"],
-      "automerge": true,
-      "schedule": ["every weekend after 4am"]
-    }
-  ],
+  "major": {
+    "enabled": false
+  },
   "timezone": "UTC",
   "schedule": [
     "after 10pm every weekday",
