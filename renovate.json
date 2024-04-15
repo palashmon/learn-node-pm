@@ -9,18 +9,23 @@
   "dependencyDashboard": true,
   "rebaseWhen": "conflicted",
   "ignoreDeps": [],
-  "labels": [
-    "dependencies"
-  ],
+  "labels": ["dependencies"],
   "prConcurrentLimit": 30,
-  "prHourlyLimit": 0,
+  "prHourlyLimit": 2,
   "packageRules": [
     {
-      "updateTypes": [
-        "minor",
-        "patch"
-      ],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+      "pinDigests": true,
+      "schedule": ["every weekend after 4am"]
     }
   ],
   "timezone": "UTC",
