@@ -11,6 +11,14 @@
   "rebaseWhen": "conflicted",
   "ignoreDeps": [],
   "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "branch"
+    }
+  ],
+  "platformAutomerge": true,
   "prConcurrentLimit": 30,
   "prHourlyLimit": 2,
   "major": {
