@@ -43,7 +43,7 @@
     "mongoose": "^8.8.3",
     "mongoose-mongodb-errors": "^0.0.2",
     "multer": "^2.0.0",
-    "nodemailer": "^6.0.0",
+    "nodemailer": "^7.0.7",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.0",
